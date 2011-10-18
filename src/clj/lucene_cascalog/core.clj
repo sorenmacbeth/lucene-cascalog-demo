@@ -36,7 +36,7 @@
 
 (defn tokenize-strings [in-path out-path]
   (let [src (hfs-textline in-path)]
-    (?<- (hfs-textline out-path :sink-mode :replace)
+    (?<- (hfs-textline out-path :sinkmode :replace)
          [!line ?token]
          (src !line)
          (tokenize-string !line :> ?token)
