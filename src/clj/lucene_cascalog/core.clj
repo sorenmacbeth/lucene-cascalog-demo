@@ -1,4 +1,5 @@
 (ns lucene-cascalog.core
+  (:gen-class)
   (:use cascalog.api)
   (:import
    org.apache.lucene.analysis.standard.StandardAnalyzer
@@ -41,4 +42,7 @@
          (src !line)
          (tokenize-string !line :> ?token)
          (:distinct false))))
+
+(defn -main [in-path out-path]
+  (tokenize-strings in-path out-path))
 
